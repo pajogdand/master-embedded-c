@@ -4,8 +4,7 @@
 int main(void)
 {
     //array which is going to hold the 3 variables int *
-    int *p_arr[3];
-    
+    int *p_arr[3];    
 
     int n1 = 10;
     int n2 = 20;
