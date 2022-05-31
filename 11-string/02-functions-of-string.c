@@ -139,6 +139,55 @@ int num_of_times_str_repeated(char *main_str, int len_main_str , char *sub_str ,
     return sub_str_repeat_cnt;
 }
 
+char* remove_repeated_char(char *main_str, int len_main_str)
+{
+    char *ret_str = malloc(sizeof(char)*(len_main_str+1)) ;
+    for(int i=0;i<len_main_str;i++)
+    {
+        ret_str[i] = main_str[i];
+    }
+    for(int i=0;i<len_main_str;i++)
+    {
+        for(int j=i+1 ;j<len_main_str ; j++)
+        {
+            if(ret_str[i] == ret_str[j])
+            {
+                for(int k=j ; k<len_main_str-1 ; k++)
+                {
+                    ret_str[k] = ret_str[k+1];
+                }
+                len_main_str--;
+            }
+        }
+    }
+    ret_str[len_main_str] = '\0';
+    return ret_str;
+}
+
+char *reverse_string(char *main_str, int len_main_str)
+{
+    
+    char *rev_str = (char *)malloc((len_main_str+1)*sizeof(char));
+
+    for(int i=len_main_str-1;i>0;i--)
+    {
+        rev_str[i] = main_str[i];
+    }
+
+    return rev_str;
+}
+
+char * left_shift_str_char(char* main_str ,int len_main_str)
+{
+    char *ret_str = (char *)malloc(sizeof(char)*len_main_str);
+    int i;
+    for(i=0; i<len_main_str ; i++)
+    {
+        ret_str[i] = main_str[i+1]; 
+    }    
+    return ret_str;
+}
+
 int main(void)
 {
     char *a = "pravin";
@@ -171,7 +220,7 @@ int main(void)
     
     
     //Finding sub_string within main_string
-    char *main_str =  "jogpravinjogdandjog";
+    char *main_str =  "pravinpnz";
     char *sub_str = "jog";
 
     len_of_string(a);
@@ -181,8 +230,21 @@ int main(void)
     check_if_sub_string_present(main_str,len_main_str,sub_str, len_sub_str));
 
     printf("num_of_times_str_repeated = %d \n" ,\
-    num_of_times_str_repeated(main_str,len_main_str,sub_str, len_sub_str));      
+    num_of_times_str_repeated(main_str,len_main_str,sub_str, len_sub_str));
 
+    char *left_shifted_str = left_shift_str_char(main_str , len_main_str);
+    if(left_shifted_str != NULL)
+    {
+        printf("check_if_sub_string_present = %s \n" ,left_shifted_str);
+        free(left_shifted_str);
+    }
+
+    char *repeated_char_removed_str = remove_repeated_char(main_str , len_main_str);
+    if(repeated_char_removed_str != NULL)
+    {
+        printf("remove_repeated_char = %s \n" ,repeated_char_removed_str);
+        free(left_shifted_str);
+    }
     
     exit(0);
 }

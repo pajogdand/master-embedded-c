@@ -27,7 +27,8 @@ char *get_power_array(int k , int po)
                 ret_arr[i+j+(i*(k-1))] = '0';
             }
         }        
-    } 
+    }
+    ret_arr[len] = '\0';
     return ret_arr;
 }
 
@@ -39,6 +40,8 @@ bool is_str_equal(char *st , char *ct)
         {
             return false;
         }
+        st++;
+        ct++;
     }
     return true;
 }
@@ -98,5 +101,6 @@ int main(void)
     // }
     char* s = "00110110";
 
-    printf("hasAllCodes = " , hasAllCodes(s, k));
+    printf("hasAllCodes = %d" , hasAllCodes(s, k));
+    exit(0);
 };
