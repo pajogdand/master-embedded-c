@@ -121,7 +121,7 @@ int main()
     else
         printf("%dth bit is not set" , bit_pos );
     #endif
-
+    
     ramd_app(A , MIN , MAX);
     
     exit(0);
