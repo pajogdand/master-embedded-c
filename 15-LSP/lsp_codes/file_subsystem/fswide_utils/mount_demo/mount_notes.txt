@@ -1,0 +1,94 @@
+mount (char *source, char *dest, char *fstype, unsigned long mountflags, const 
+       void *data); 
+Mount flags : 
+
+MS_BIND 
+	- Bind options would be considered later. 
+MS_DIRSYNC
+	- open with O_SYNC flag applies to all files. MS_DIRSYNC ensures open 
+	(pathname, O_CREAT), rename (), link (), unlink (), symlink (), mkdir () 
+	are synchrnized without incurring the cost of synchronizing all file 
+	accesses. 
+	- FS_DIRSYNC_FL : Same utility but can be applied per directory basis. 
+	- If we provide, descriptor of directory file to fsync () then we get 
+	synchronization per directory basis. Not a standard SuSV3 behaviour. 
+MS_MANDLOCK
+	- Permits mandatory record locking on the all files in the file system. 
+MS_MOVE
+	- Mounts subtree pointed to by 'source' argument under the directory 
+	pointed to by 'destination' argument. Note that 'source' has already 
+	been mounted under some directory in the file system. Therefore, this 
+	operation involves unmounting fs-tree pointed to by the 'source' and 
+	then remounting it under the directory pointed to by 'target'. 
+	- But unmounting and remounting are atomic operations. Therefore, there 
+	is no point in time where the source is unmounted. 
+	- When this flag is specified last three argument, fstype, mount flags 
+	as well as data are ignored. 	
+MS_NOATIME
+	- This flag causes last time access flag not being updated for the 
+	files belonging to this mounted-on file system. 
+	- Purpose of this flag is to save extra disk access for updating the 
+	inodes of opened file from the file system. This can be used where last 
+	access time does not make much of a difference. 
+	- FS_NOATIME_FL flag also provides the same functionality, although it 
+	can be done on per file basis rather than for the entire file system. 
+	- MS_NODIRATIME also does the same thing for the directories belonging 
+	mounted-on file system. 
+	- O_NOATIME while opening a file using open system also achieves the 
+	same objective as described in the above file. 
+MS_NODEV
+	- This flag causes denied access to the character and the block device 
+	files on the mounted-on file system. 
+	- This flag is provided for the security purpose. One can insert a 
+	removable device containing device files and giving appropriate 
+	permissions, he/she can do arbitrary operations in the system being a 
+	normal user. Therefore, while mounting any file-system, if we apply 
+	MS_NODEV, this hack can be prevented. 
+MS_NODIRATIME
+	- Same as MS_NOATIME, but only applicable to the directories inside the 
+	mounted-on file-system. 
+MS_NOEXEC
+	- Don't allow scripts and executable on the mounted-on file system to 
+	run. 
+	- This is useful, if system contains non-Linux executables. 
+MS_NOSUID
+	- This flag denies running of setuid, setgid bit on programs from the
+	source file-system. This is also a security feature like MS_NODEV flag
+MS_RDONLY
+	- All the files in the mounted-on file systems are read only. That means
+	you cannot create files in directories of mounted on file system. As well 
+	as you cannot alter the contents of regular files. 
+MS_REC
+	- Advanced mount options 
+MS_RELATIME
+	- This feature modifies last access time only if it's current value is less
+       than last modified flag. It has some performance benefits of MS_NOATIME. 
+	- This is useful flag for programs who need to know when file was recently 
+	accessed since the last update. 
+	- Since Linux 2.6.30 the last accessed time stamp is always modified if 
+	the current accessed time stamp is greater than 24 hours of last updated 
+	time stamp even if last accessed time stamp is greater than last update 
+	time stamp. 
+MS_REMOUNT
+	- If this flag is specified then it is required that source is already 
+        mounted under the target. In this, fstype argument is ignored and mount
+ 	flags are set to mount flag argument of the system call. 
+	- Normally that would involve unmounting the file system and remounting 
+	it. But sometimes, it is not possible to unmount the file system. 
+	(i) When processes have opened file from the mounted on file system. 
+        (ii) When current directory of a running process is one of the directories	 	  belonging to mounted on file-system. 
+MS_STRICTATIME
+	- This flag always modifies file access time, no matter what. 	
+MS_SYNCHRONOUS
+	- Makes all read-write operations on all files in the mounted on file 
+	system, synchronous. 
+	- This is equivalent to opening all the files in the mounted on file 
+	system with O_SYNC flag. 
+
+- Starting from kernel version 2.6.15, Linux has introduced the concept of 
+shared subtree. There are some additional flags with respect to this notion. 
+MS_PRIVATE, MS_SHARED, MS_SLAVE, MS_UNBINDABLE. 
+
+- Shared subtrees are responsible for enabling some advanced file system features 
+e.g. per process mount namespaces, File system in user-space (FUSE). 
+

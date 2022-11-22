@@ -1,0 +1,249 @@
+Chapter 4
+open
+read
+write
+lseek
+close
+fcntl
+ioctl
+
+Chapter 5
+dup2 
+dup3 
+pread 
+pwrite 
+readv 
+writev
+preadv
+pwritev
+truncate
+ftruncate
+
+Chapter 7 
+brk
+sbrk
+
+Chapter 9
+getuid 
+geteuid
+getgid
+getegid
+
+setuid
+setgid
+seteuid
+setegid
+setreuid
+setregid
+getresuid
+getresgid
+setresuid
+setresgid
+setfsuid
+setfsgid
+getgroups
+
+Chapter 10 
+gettimeofday
+settimeofday
+time
+times
+
+Chapter 11
+sysconf
+pathconf
+fpathconf
+
+Chapter 13
+fsync 
+fdatasync
+sync 
+
+chapter 14
+mount
+umount
+umount2
+statvfs
+fstatvfs
+
+Chapter 15 
+stat 
+lstat
+fstat 
+
+utime
+utimes
+lutimes
+futimes
+utimensat
+utimens
+
+chown
+lchown
+fchown
+
+access
+umask
+
+chmod
+fchmod
+
+chapter 16
+setxattr
+lsetxattr
+fsetxattr
+
+getxattr
+lgetxattr
+fgetxattr
+
+removexattr
+lremovexattr
+fremovexattr
+
+listxattr
+llistxattr
+flistxattr
+
+chapter 18 
+link 
+unlink
+rename
+symlink
+readlink
+mkdir
+rmdir
+remove
+getcwd
+chdir
+fchdir
+openat
+chroot
+
+Chapter 19
+inotify_init
+inotify_add_watch
+inotify_rm_watch
+
+
+library 
+
+tmpfile 
+
+Chapter 6
+getenv
+setenv
+putenv
+unsetenv
+clearenv
+setjmp
+longjmp 
+
+Chapter 7 
+malloc 
+free 
+calloc
+realloc
+memalign
+posix_memalign
+alloca
+
+Chapter 8
+getpwnam
+getpwuid
+getgrnam
+getgwgid
+getpwent
+setpwent
+endpwent
+
+getspnam
+getspent
+setspent
+endspent
+
+crypt
+getpass
+
+Chapter 9
+setgroups
+initgroups
+
+Chapter 10
+ctime
+asctime
+gmtime
+localtime
+mktime
+strftime
+strptime
+setlocale
+adjtime
+clock 
+
+Chapter 12 
+
+Chapter 13 : 
+setvbuf
+setbuf
+setbuffer
+fflush 
+posix_fadvise
+fileno
+fdopen 
+
+chapter 14 
+
+
+Chapter 17 
+acl_get_file
+acl_set_file
+
+acl_from_text 
+acl_to_text
+
+acl_get_entry 
+
+acl_get_tag_type
+acl_set_tag_type
+
+acl_get_qualifier
+acl_set_qualifier
+
+acl_get_permset
+acl_set_permset
+
+acl_get_perm
+acl_add_perm
+acl_delete_perm
+acl_clear_perms
+
+Chapter 18: 
+opendir
+readdir
+fdopendir
+rewinddir
+closedir
+dirfd
+readdir_r
+ftw
+nftw
+realpath
+dirname
+basename
+
+16 syscalls
+69 library functions
+
+80 implemented sys/self designed wrappers
+7 libs implemented/self designed wrappers
+
+
+REMAINING SYSTEM CALLS
+
+setgroups
+getgroups
+adjtimex
+
+REMAINING LIB FUNCTIONS
+initgroups

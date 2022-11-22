@@ -31,5 +31,4 @@ int create_int_using_dpp(int **p ,int num)
 
     **p =  num;
     
-    free
 }

@@ -1,0 +1,11 @@
+- For regular 
+d for directory 
+c for character special 
+b for block special 
+s for socket 
+p for pipe 
+l for link 
+
+1111 	1111 	1111 	1111 	1111  	1110  	0000 	0000
+0000	0000	0000	0000	0000	0001	1111	1111
+0	0	0	0	0	1	F	F

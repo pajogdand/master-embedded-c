@@ -1,0 +1,42 @@
+int umount (const char *target); 
+- In the previous versions of Linux it was possible to specify targets 
+in two ways. One is to specify the mount point or the device name. Later 
+way is not allowed now, because one file system can be mount under 
+multiple mount points. Therefore, specifying device name would be 
+ambiguous. Specifying mount point is unambiguous. 
+
+int umount2 (const char *target, int flags); 
+- Description of target is the same as in umount. 
+- Flags provide fine control over unmounting operation. 
+
+Description of flags: 
+
+MNT_DETACH: 
+- Performs lazy unmount. Meaning no new process can make access to the files 
+in the mounted on file system. But processes which have already opened the 
+files can continue to use them. When all processes close their file descriptors
+and no process has current working directory as one of the directories from 
+mounted on file-system at that time only file system is truly unmounted. 
+
+MNT_EXPIRE: 
+- When an initial umount2 is called, and device is not busy then call fails 
+with EAGAIN error code, but mount point is marked as expired. 
+- When an initial umount2 is called and the device is busy then call fails 
+with EBUSY and mount point is NOT marked as expired. 
+- When umount2 is called again with MNT_EXPIRE on the expired mount point, 
+the mount point will be umounted. This provides a mechanism for unmounting 
+a file system that has not been used in a while. 
+- Cannot be used with MNT_FORCE and MNT_DETACH. 
+
+MNT_FORCE: 
+- Unmounts the file-system even if it is in use. This may result into a data
+loss. 
+
+UMOUNT_NOFOLLOW: 
+- Do not dereference the target if target is a symbolic link. 
+- This feature is used because some programs allow non-privileged user to 
+unmount the file system. 
+- Undesirable results can be obtained if symbolic link is made to point 
+somewhere else than the original mount point. 
+- This flag will secure unmounting procedure from such hacks. 
+ 

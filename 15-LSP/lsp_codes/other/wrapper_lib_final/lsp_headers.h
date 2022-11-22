@@ -1,0 +1,64 @@
+#ifndef _LSP_HEADERS_H 
+#define _LSP_HEADERS_H 
+
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <stdarg.h> 
+#include <errno.h> 
+#include <getopt.h> 
+#include <setjmp.h>
+#include <string.h> 
+#include <wchar.h>
+#include <ctype.h> 
+#include <wctype.h> 
+#include <argz.h>
+#include <malloc.h>
+#include <mcheck.h> 
+#include <obstack.h> 
+#include <unistd.h> 
+#include <fcntl.h> 
+#include <pwd.h> 
+#include <grp.h> 
+#include <shadow.h>
+#include <crypt.h> 
+#include <time.h> 
+#include <locale.h> 
+#include <utime.h> 
+#include <dirent.h>
+#include <ftw.h>
+#include <libgen.h>
+#include <signal.h> 
+#include <sched.h> 
+#include <utmp.h>
+#include <dlfcn.h> 
+#include <mqueue.h> 
+#include <semaphore.h> 
+#include <poll.h> 
+
+#include <asm/ptrace.h>
+
+#include <sys/types.h> 
+#include <sys/uio.h> 
+#include <sys/mount.h> 
+#include <sys/stat.h> 
+#include <sys/time.h> 
+#include <sys/utsname.h> 
+#include <sys/statvfs.h> 
+#include <sys/xattr.h> 
+#include <sys/acl.h>
+#include <sys/inotify.h> 
+#include <sys/time.h> 
+#include <sys/wait.h> 
+#include <sys/utsname.h> 
+#include <sys/resource.h> 
+#include <sys/ipc.h> 
+#include <sys/msg.h> 
+#include <sys/sem.h> 
+#include <sys/shm.h> 
+#include <sys/mman.h> 
+#include <sys/file.h> 
+#include <sys/socket.h> 
+#include <sys/select.h> 
+#include <sys/epoll.h> 
+
+#endif /* _LSP_HEADERS_H */ 
