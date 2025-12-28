@@ -14,9 +14,13 @@ int main(void)
     int *const p1 = &m;
     // p1 is const pointer (read/write) int
     *p1 =1000; // this is allowed 
-    //p1 = &m; // this is not allowed
+    // p1 = &n; // this is not allowed
 
 
 
     exit(0);
 }
+//
+// const int * p;  --> read only data through read/write pointer
+// int * const p1; --> read/write data through read only pointer
+// const int * const p2; --> read only data through read only pointer   

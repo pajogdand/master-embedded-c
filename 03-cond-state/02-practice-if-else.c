@@ -15,12 +15,16 @@
 
 int main()
 {
-    int x = 20;
-    int y = 11;
+    int x = 12;
+    int y = 20;
 
     if( (x%2 == 0) && (y%2 ==0) )
     {
         printf("x and y are even\n");
+        if(100)
+        {
+            printf("Inside nested if\n");
+        }
     }
     else if (x%2 == 0 )
     {
@@ -29,6 +33,10 @@ int main()
     else if(y%2 == 0)
     {
         printf("x is even\n");
+    }
+    else
+    {
+        printf("x and y are odd\n");
     }
 
     exit(0);

@@ -21,7 +21,7 @@ Date_t *create_date(day_t day , month_t month ,year_t year);
 day_t get_day(Date_t date);
 status_t is_date_valid(Date_t date);
 
-int mina(void)
+int main(void)
 {
      Date_t my_date;
 

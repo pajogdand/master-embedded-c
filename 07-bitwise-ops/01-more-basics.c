@@ -13,9 +13,9 @@ int main(void)
     unsigned char a = 1; 
     unsigned char b = 3;
 
-                         // a = 00000001
+                         // a = 00000010
                          // b = 00000011
-                         // c = 00000001 &  ==> 11 pass all ones 
+                         // c = 00000010 &  
 
                          // a = 00000001
                          // b = 00000000 &

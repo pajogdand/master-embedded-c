@@ -21,7 +21,7 @@ int main(void)
     ptr1 = &gol_n;
     
     printf("before gol_n = %d\n" , gol_n);
-    // *ptr1 = 100;
+    *ptr1 = 100;
     // This is not allowed
     // This will give error
     printf("after gol_n = %d\n" , gol_n);

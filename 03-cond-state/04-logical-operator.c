@@ -3,12 +3,13 @@
 #include <stdbool.h>
 
 // Any non zero value we can treat that as true value
+// zero value we can treat that as false value
 
 // TRUE  ==> 1
 // FALSE ==> 0
 
 // There are 3 logical operators in C language.
-// They are, logical AND (&&), logical OR (||) and logical NOT (!).
+// They are, logical AND (&&), logical OR (||) and logical NOT (!) and logical XOR (^)
 
 // S1 && S2  result
 // T     T    T
@@ -35,17 +36,39 @@ int main()
     int a = 10;
     int b = 45;
     
-    int result  = ( (x == y) || (a == b) );
-                    // T           F    ==>  T        
-    printf("result = %d\n" , result); 
-
-    if(!result)
+    int z = 12;
+    if(z)
     {
-        printf("YES\n");
+        printf("z is True : %d\n" , z);
     }
     else{
-        printf("NO\n");
+        printf("z is false : %d\n" , z);
     }
+
+    z = !z;
+    if(z)
+    {
+        printf("z is True: %d\n" , z);
+    }
+    else{
+        printf("z is false: %d\n" , z);
+    }    
+
+    // int result1  = ( (x == y) || (a == b));
+    //                 // T           F        ==> T
+    // int result  = ( (x == y) && (a == b));
+    //                 // T           F        ==> F           
+    // printf("result = %d\n" , result);
+
+    
+
+    // if(result)
+    // {
+    //     printf("result is True\n");
+    // }
+    // else{
+    //     printf("result is false\n");
+    // }
 
 
 

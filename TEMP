@@ -1,0 +1,66 @@
+/*
+ * File Name   : 03_insert_at_end.c
+ * Folder      : LinkedList/01_Basic_Linked_List_Programs
+ *
+ * Description :
+ *   Insert At End
+ *
+ * Author      : Pravin Jogdand
+ * Date        : 25-12-2025
+ *
+ * Notes       :
+ *   - Embedded C friendly
+ *   - Dynamic memory using malloc (can be replaced with static pool)
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* ---------- Linked List Node Definition ---------- */
+typedef struct node
+{
+    int data;
+    struct node *next;
+} node;
+
+typedef node* nodePtr;
+
+/* ---------- Global Head Pointer ---------- */
+nodePtr head = NULL;
+
+/* ---------- Function Prototypes ---------- */
+void insert_at_end(int data);
+
+/* ---------- Main Function ---------- */
+int main(void)
+{
+    printf("Program: %s\n", "Insert At End");
+
+    return 0;
+}
+
+void insert_at_end(int data)
+{
+    nodePtr new_node, p;
+    new_node = (nodePtr)malloc(sizeof(node));
+    if (new_node == NULL)
+    {
+        printf("Memory allocation failed\n");
+        return; 
+    }
+    new_node->data = data;
+    new_node->next = NULL; 
+    if(head == NULL)
+    {
+        head = new_node;
+    }
+    else
+    {
+        p = head;
+        while(p->next != NULL)
+        {
+            p = p->next;
+        }
+        p->next = new_node;
+    }
+}

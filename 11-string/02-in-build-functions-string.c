@@ -7,18 +7,31 @@
  // len = 9
  // len-1 = 8
  //         7...
+// void reverseString(char *str) {
+//     int len = strlen(str);
+//     int last = len - 1;
+//     for (int i = 0; i < len / 2; i++) {
+//         char temp = str[i];
+//         str[i] = str[last - i];
+//         str[last - i] = temp;
+//     }
+// }
+
 void reverseString(char *str) {
     int len = strlen(str);
-    int last = len - 1;
-    for (int i = 0; i < len / 2; i++) {
-        char temp = str[i];
-        str[i] = str[last - i];
-        str[last - i] = temp;
+    int right = len;
+    int left = 0;
+    while (left < right) {
+        char temp = str[left];
+        str[left] = str[right - 1];
+        str[right - 1] = temp;
+        left++;
+        right--;
     }
 }
 
 int main() {
-    char str1[50] = "Hello";
+    char str1[50] = "WorldHelloThere";
     char str2[50] = "World!";
     char dest[50];
     char src[50] = "Example";
@@ -43,11 +56,11 @@ int main() {
     // } else if (cmpResult > 0) {
     //     printf("\"apple\" is greater than \"banana\"\n");
     // } else {
-    //     printf("\"apple\" is equal to \"banana\"\n");
+    //     printf("\"apple\" is equal to \"apple\"\n");
     // }
 
     // // 5. Copying Limited Characters
-    // strncpy(dest, src, 3);
+    // strncpy(dest, src, 3); // 0 1 2 3
     // dest[3] = '\0'; // Add null terminator
     // printf("Copied first 3 characters of src: %s\n", dest);
 
@@ -56,15 +69,17 @@ int main() {
     // printf("Concatenated Limited Characters: %s\n", str1);
 
     // // 7. String Search (Character)
-    // char *ptr = strchr(str1, 'H');
+    // char *ptr = strchr(str1, 'T');
     // if (ptr) {
     //     printf("First occurrence of 'H': %s\n", ptr);
     // }
 
     // // 8. String Search (Substring)
-    // char *ptr = strstr(str1, "World");
+    // char substr[] = "He";
+    // char *ptr = strstr(str1, substr);
     // if (ptr) {
     //     printf("First occurrence of \"World\": %s\n", ptr);
+    //     printf("First occurrence of \"World\": %c,%c\n", ptr[0], ptr[1]);
     // }
 
     // // 9. String Tokenization
@@ -77,9 +92,9 @@ int main() {
     // }
 
     // // 10. String Reverse
-    // char str4[] = "ReverseMe";
-    // reverseString(str4);
-    // printf("Reversed String: %s\n", str4);
+    char str4[] = "ReverseMe";
+    reverseString(str4);
+    printf("Reversed String: %s\n", str4);
 
     return 0;
 }

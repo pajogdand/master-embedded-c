@@ -25,15 +25,18 @@ int main(void)
 
 int is_kth_bit_set(unsigned int k , int  n)
 {
-//    if ( ( (1 << (k-1)) & n ) != 0)
-//    {
-//        return 1;
-//    }
-//    else
-//    {
-//        return 0;
-//    }
-    int ret = ( ( (1 << (k-1)) & n ) != 0) ?  1 : 0;
+   unsigned char result = n & (1 << (k-1));
 
-    return ret;
+   if ( result != 0)
+   {
+       return 1;
+   }
+   else
+   {
+       return 0;
+   }
+
+    // int ret = ( ( (1 << (k-1)) & n ) != 0) ?  1 : 0;
+
+    // return ret;
 }

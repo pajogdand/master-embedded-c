@@ -72,10 +72,13 @@ int main()
 {
     signed short int si;
     unsigned short int  usi;
+
     unsigned int ui;
     signed int i;
+    
     signed long int li;
     unsigned long int uli;
+    
     signed long long int lli;
     unsigned long long int ulli;
     
@@ -88,12 +91,22 @@ int main()
 
     printf("size of si = %d \n", sizeof(si));
     printf("size of usi = %d \n", sizeof(usi));
+
     printf("size of ui = %d \n", sizeof(ui));
     printf("size of i = %d \n", sizeof(i));
+
     printf("size of li = %d \n", sizeof(li));
     printf("size of uli = %d \n", sizeof(uli));
+
     printf("size of lli = %d \n", sizeof(lli));
     printf("size of ulli = %d \n", sizeof(ulli));
+
+    printf("size of f = %d \n", sizeof(f));
+    printf("size of d = %d \n", sizeof(d));
+    printf("size of ld = %d \n", sizeof(ld));
+
+
+
      
     exit(0);
 }

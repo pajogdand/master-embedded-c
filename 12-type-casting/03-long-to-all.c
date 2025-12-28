@@ -9,6 +9,7 @@ int main()
 {
     unsigned long long num = 0x1020304050607080;
 
+    printf("first byte = %hhx \n" , *((char*)(&num)));
     for(int i=0;i<ULL_SIZE;i++)
     {
         printf("byte = %hhx \n" , *((char*)(&num)+i));

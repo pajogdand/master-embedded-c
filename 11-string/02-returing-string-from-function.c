@@ -3,7 +3,8 @@
 #include <string.h>
 
 // Method 1: Return string using static memory
-const char* getStaticMessage() {
+const char* getStaticMessage() 
+{
     return "Hello, this message is from static memory!";
 }
 
@@ -53,6 +54,7 @@ int main() {
         free(dynamicMessage); // Free dynamically allocated memory
     }
 
+    // message @1000 [NULL];
     char  *message = NULL;
     getDynamicMessage1(&message);
 

@@ -34,10 +34,13 @@ int main()
 
     int a = 10;
     int b = 45;
+
+    bool C = true;
+    printf("Size of bool C = %d\n" , sizeof(C));
     
     bool result  = ( (x == y) || (a == b) );
                     // T           F    ==>  T        
-    printf("result = %d\n" , sizeof(result)); 
+    printf("result = %ld\n" , sizeof(result)); 
 
     if(result)
     {
