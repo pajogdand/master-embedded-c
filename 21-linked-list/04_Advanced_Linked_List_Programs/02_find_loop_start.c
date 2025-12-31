@@ -29,7 +29,41 @@ typedef node* nodePtr;
 nodePtr head = NULL;
 
 /* ---------- Function Prototypes ---------- */
+void find_loop_start(void)
+{
+    nodePtr slow_ptr = head;
+    nodePtr fast_ptr = head;
 
+    /* First, detect if a loop exists using Floyd's Cycle-Finding Algorithm */
+    int loop_exists = 0;
+    while (slow_ptr && fast_ptr && fast_ptr->next)
+    {
+        slow_ptr = slow_ptr->next;
+        fast_ptr = fast_ptr->next->next;
+
+        if (slow_ptr == fast_ptr)
+        {
+            loop_exists = 1;
+            break;
+        }
+    }
+
+    if (!loop_exists)
+    {
+        printf("No loop detected in the linked list.\n");
+        return;
+    }
+
+    /* Find the starting node of the loop */
+    slow_ptr = head;
+    while (slow_ptr != fast_ptr)
+    {
+        slow_ptr = slow_ptr->next;
+        fast_ptr = fast_ptr->next;
+    }
+
+    printf("Loop starts at node with data: %d\n", slow_ptr->data);
+}
 
 /* ---------- Main Function ---------- */
 int main(void)

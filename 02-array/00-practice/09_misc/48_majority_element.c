@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-void 48_majority_element(int arr[], int n)
+void majority_element(int arr[], int n)
 {
     /* TODO: Implement logic */
 }

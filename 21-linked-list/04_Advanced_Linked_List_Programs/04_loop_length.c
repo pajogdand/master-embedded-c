@@ -29,7 +29,42 @@ typedef node* nodePtr;
 nodePtr head = NULL;
 
 /* ---------- Function Prototypes ---------- */
+void loop_length(void)
+{
+    nodePtr slow_ptr = head;
+    nodePtr fast_ptr = head;
 
+    /* First, detect if a loop exists using Floyd's Cycle-Finding Algorithm */
+    int loop_exists = 0;
+    while (slow_ptr && fast_ptr && fast_ptr->next)
+    {
+        slow_ptr = slow_ptr->next;
+        fast_ptr = fast_ptr->next->next;
+
+        if (slow_ptr == fast_ptr)
+        {
+            loop_exists = 1;
+            break;
+        }
+    }
+
+    if (!loop_exists)
+    {
+        printf("No loop detected in the linked list.\n");
+        return;
+    }
+
+    /* Calculate the length of the loop */
+    int loop_length = 1;
+    fast_ptr = fast_ptr->next;
+    while (slow_ptr != fast_ptr)
+    {
+        fast_ptr = fast_ptr->next;
+        loop_length++;
+    }
+
+    printf("Length of the loop is: %d\n", loop_length);
+}
 
 /* ---------- Main Function ---------- */
 int main(void)
